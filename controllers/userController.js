@@ -16,7 +16,7 @@ const getAllUsers = async (req, res, next) => {
 };
 
 const createUser = async (req, res, next) => {
-  const { name, email, password, profileImg } = req.body;
+  const { email, password} = req.body;
 
   try {
     if (!name || !email || !password) {
@@ -26,10 +26,10 @@ const createUser = async (req, res, next) => {
     }
 
     const user = await User.create({
-      name,
+      
       email,
       password,
-      profileImg,
+     
     });
     res.status(201).json({ message: "Амжилттай бүртгэгдлээ", user });
   } catch (err) {
